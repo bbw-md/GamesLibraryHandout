@@ -42,7 +42,7 @@ public class GameService {
     }
 
     public List<Game> searchByTitle(String title) {
-        return gameRepository.findByTitleContainingIgnoreCase(title);
+        return gameRepository.findByTitleContaining(title);
     }
 
     public Game createGame(Game game) {
@@ -62,6 +62,5 @@ public class GameService {
         if (!gameRepository.existsById(id)) {
             throw new NoSuchElementException("Spiel mit ID " + id + " nicht gefunden");
         }
-        gameRepository.deleteById(id);
     }
 }
